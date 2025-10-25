@@ -224,10 +224,12 @@ body{
 .project-links a{
     text-decoration: none;
 }
-.btn.small{
+.btn-small{
   padding:  0.3rem 1rem;
   font-size: 0.9rem;
   border-radius: 1rem;
+  color:  #000;
+  background-color:#e6c200 ;
 }
 
 .contact{
