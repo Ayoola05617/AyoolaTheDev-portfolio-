@@ -13,7 +13,7 @@ const typed = new Typed('.typed-text',{
                 onComplete: (self) => {
                     const el = document.querySelector('.typed-text');
                     el.textContent = 'Full-stack web developer. I design and build modern, responsive and user-friendly web applications';
-                    el.style.color = '#ccc'
+                    el.style.color = '#ffd700'
                     el.style.fontWeight = '700'
                 }
             });

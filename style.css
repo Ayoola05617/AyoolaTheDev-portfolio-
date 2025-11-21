@@ -1,24 +1,81 @@
+/* =============== CSS VARIABLES =============== */
+:root {
+  /* BRAND */
+  --gold: #ffd700;
+  /* DARK THEME (your current theme) */
+  --bg-dark: #1a1a1a;
+  --text-dark: #ffffff;
+  --card-dark: #111;
+  --soft-text-dark: #ccc;
+  --border-dark: #ffd700;
+  --hero-accent-dark: #eaeaea;
+  /* LIGHT THEME */
+  --bg-light: #ffffff;
+  --text-light: #111;
+  --card-light: #f5f5f5;
+  --soft-text-light: #555;
+  --border-light: #d4d4d4;
+  --hero-accent-light: #333;
+  --topbar-height: 66px;
+}
+/* ACTIVE THEME CLASSES */
+.dark-theme {
+  --bg: var(--bg-dark);
+  --text: var(--text-dark);
+  --card: var(--card-dark);
+  --soft-text: var(--soft-text-dark);
+  --border: var(--border-dark);
+  --hero-accent: var(--hero-accent-dark);
+}
+.light-theme {
+  --bg: var(--bg-light);
+  --text: var(--text-light);
+  --card: var(--card-light);
+  --soft-text: var(--soft-text-light);
+  --border: var(--border-light);
+  --hero-accent: var(--hero-accent-light);
+}
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    /* use Inter as the primary UI font for a clean, professional appearance */
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
+.theme-toggle{
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  transition: color .3s ease, transform .3s ease;
+}
+.theme-toggle:hover{
+  transform: scale(1.1);
+  color: var(--gold);
+}
 body{
-    background-color: #1a1a1a;
-    color: #ffffff;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
     line-height: 1.6;
+    padding-top: var(--topbar-height) !important;
 }
 .topbar{
-    background: #111;
+    background: var(--card) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     padding: 1.2rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 3000;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: var(--topbar-height) !important;
+    z-index: 130000 !important;
 }
 
 .logo{
@@ -32,7 +89,7 @@ body{
 .nav-links a {
     margin-left: 2rem;
     text-decoration: none;
-    color: #fff;
+    color: var(--text-dark);
     transition: color 0.3s ease;
 }
 .nav-links a:hover {
@@ -47,14 +104,25 @@ body{
   flex-wrap: wrap;
   gap: 2rem;
   height: 70vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0 !important;
 }
 #particle-bg {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 85%;
+  height: 100%;
   z-index: 0;
+  pointer-events: none;
+}
+canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
   pointer-events: none;
 }
 .hero-content {
@@ -67,20 +135,18 @@ body{
 .hero-content h1 {
   font-size: 2.8rem;
 }
-.hero-content h2{
+.hero-content h1{
     color: #eaeaea;
     margin: 0.8rem 0;
 }
 .hero-content p {
   
-  color: #ffd700;
+  color: #eaeaea;
   font-weight: 600;
   margin-bottom: 1.5rem;
 }
 
-.typed-text{
-    color: #ffd700;
-}
+
 
 .hero-buttons .btn-gold, .btn-outline{
     display: inline-block;
@@ -94,6 +160,8 @@ body{
 .btn-gold{
     background: #ffd700;
     color: #000;
+}.typed-text{
+    color: #ffd700;
 }
 
 .btn-gold:hover{
@@ -117,7 +185,7 @@ body{
     font-size: 2.2rem;
     text-align: center;
     margin-bottom: 1rem;
-    color: #fff;
+    color: var(--text-dark);
 }
 .section-title span {
     color: #ffd700;
@@ -157,8 +225,8 @@ body{
 }
 
 .skills li{
-    background: #1a1a1a;
-    border: 1px solid #ffd700;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-dark);
     padding: 0.6rem 1rem;
     border-radius: 6px;
     font-size: 0.95rem;
@@ -202,7 +270,7 @@ body{
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-bottom: 2px solid #ffd700;
+    border-bottom: 2px solid var(--gold);
 }
 .project-info{
     padding: 1.2rem;
@@ -213,7 +281,7 @@ body{
     margin-bottom: 0.5rem;
 }
 .project-info p{
-    color: #ccc;
+    color: var(--hero-accent-dark);
     font-size: 0.95rem;
     margin-bottom: 1rem;
 }
@@ -238,7 +306,7 @@ body{
     text-align: center;
 }
 .contact-text{
-    color: #ccc;
+    color: var(--soft-text-dark);
     max-width: 600px;
     margin: 0 auto 2.5rem;
     font-size: 1rem;
@@ -255,10 +323,10 @@ body{
 .contact-form .form-group input, .contact-form .form-group textarea{
     width: 100%;
     padding: 0.9rem 1rem;
-    border: 1px solid #ffd700;
+    border: 1px solid var(--border-dark);
     border-radius: 8px;
-    background: #1a1a1a;
-    color: #fff;
+    background: var(--bg-dark);
+    color: var(--text-dark);
     font-size: 1rem;
     outline: none;
     transition: border 0.3s ease;
@@ -288,11 +356,11 @@ body{
 }
 
 .footer{
-    background: #000;
+    background: var(--bg-dark);
     padding: 3rem 4rem 1rem;
     text-align: center;
-    color: #fff;
-    border-top: 2px solid #ffd700;
+    color: var(--text-dark);
+    border-top: 2px solid var(--border-dark);
 }
 .footer-content{
     display: flex;
@@ -485,9 +553,9 @@ body{
 .hamburger {
   display: none;
   font-size: 1.8rem;
-  color: #ffd700;
+  color: var(--gold);
   cursor: pointer;
-  z-index: 999999;
+  z-index: 110001 !important;
   position: relative;
 }
 .nav-links{
@@ -502,29 +570,54 @@ canvas, #particle-bg{
 @media (max-width: 768px) {
   .hamburger { display: block; }
   .nav-links {
-    position: fixed;
-    top: 70px;
-    right: -100%;
-    width: 60%;
-    height: calc(100vh - 70px);
-    background: #111;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    transition: right 0.35s ease;
-    z-index: 3050;
+    position: fixed !important;
+    top: var(--topbar-height) !important;
+    right: -100% !important;
+    width: 60% !important;
+    height: calc(100vh - var(--topbar-height)) !important;
+    background: var(--card) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 1.5rem !important;
+    transition: right 0.35s ease !important;
+    z-index: 3050 !important;
   }
   .nav-links.active {
-    right: 0;
+    right: 0 !important;
   }
-  .nav-links a {
-    padding: 0.8rem 0;
-    font-size: 1.1rem;
+}
+
+/* Final override: ensure mobile nav is hidden by default and only shown when .active */
+@media (max-width: 768px) {
+  .topbar .nav-links, .nav-links {
+    transform: translateX(110%) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
-  body.menu-open {
-    overflow: hidden;
+  .topbar .nav-links.active, .nav-links.active {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+}
+/* Restore normal nav on larger screens */
+@media (min-width: 769px) {
+  .topbar .nav-links, .nav-links {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    width: auto !important;
+    height: auto !important;
+    background: transparent !important;
+    display: flex !important;
   }
 }
 
@@ -558,4 +651,323 @@ canvas, #particle-bg{
     max-width: 320px;
     margin: 0;
   }
+}
+
+/* Ensure theme-toggle stays visible across themes */
+.theme-toggle {
+  color: var(--text) !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  padding: 0.25rem 0.5rem !important;
+  border-radius: 6px !important;
+  z-index: 4000 !important;
+}
+.theme-toggle:hover {
+  transform: scale(1.05) !important;
+  color: var(--gold) !important;
+  border-color: rgba(255,215,0,0.15) !important;
+  background: rgba(255,215,0,0.06) !important;
+}
+.theme-toggle #themeIcon { color: inherit !important; }
+
+/* Theme override: force key UI elements to use CSS variables so toggling .light-theme is effective */
+body, .hero, .projects, .contact, .about {
+  background-color: var(--bg) !important;
+  color: var(--text) !important;
+}
+.topbar, .footer, .contact, .about, .project-card {
+  background: var(--surface) !important;
+}
+.footer{ background: var(--footer-bg) !important; }
+
+.logo, .footer-logo { color: var(--accent) !important; }
+.logo span, .footer-logo span { color: var(--text) !important; }
+
+.nav-links a, .footer-links a, .project-info p, .contact-text, .about-text, .section-title {
+  color: var(--text) !important;
+}
+
+.project-info h3 { color: var(--accent) !important; }
+.skills li { background: var(--bg) !important; border-color: var(--accent) !important; color: var(--text) !important; }
+.project-card { background: var(--card-bg) !important; border-color: var(--card-border) !important; }
+
+.btn-gold { background: var(--accent) !important; color: #000 !important; }
+.btn-gold:hover { background: var(--accent-2) !important; }
+.btn-outline { border-color: var(--accent) !important; color: var(--accent) !important; }
+.btn-outline:hover { background: var(--accent) !important; color: #000 !important; }
+.btn-small { background-color: var(--accent-2) !important; }
+
+.contact-form .form-group input, .contact-form .form-group textarea {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  border-color: var(--accent) !important;
+}
+.contact-form .form-group input:focus, .contact-form .form-group textarea:focus{
+  border-color: var(--accent-2) !important;
+}
+
+.footer-socials a { color: var(--accent) !important; }
+.footer-socials a:hover { color: var(--text) !important; }
+
+/* Minor transition for smoother theme switch */
+* { transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease; }
+/* Prevent horizontal scrolling caused by off-canvas elements */
+html, body {
+  overflow-x: hidden !important;
+}
+
+/* When menu is open, lock scrolling */
+body.menu-open {
+  overflow: hidden !important;
+}
+
+@media (max-width: 768px) {
+  /* Constrain mobile nav width so it doesn't expose the page when swiped */
+  .topbar .nav-links, .nav-links {
+    width: min(80%, 320px) !important;
+    transform: translateX(100%) !important; /* hide fully */
+    right: 0 !important;
+  }
+  .topbar .nav-links.active, .nav-links.active {
+    transform: translateX(0) !important;
+  }
+}
+
+/* Reliable mobile nav overlay behavior */
+@media (max-width: 768px) {
+  .topbar .nav-links, .nav-links {
+    position: fixed !important;
+    top: var(--topbar-height) !important; /* sits below the topbar */
+    right: 0 !important;
+    width: min(80%, 320px) !important;
+    height: calc(100vh - var(--topbar-height)) !important;
+    background: var(--card) !important;
+    box-shadow: -6px 0 20px rgba(0,0,0,0.2) !important;
+    padding: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    transform: translateX(100%) !important; /* fully hidden offscreen */
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: transform 280ms ease, opacity 280ms ease !important;
+    z-index: 9990 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .topbar .nav-links.active, .nav-links.active {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Keep topbar items on one row and place theme-toggle right after the logo */
+  .topbar {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: var(--topbar-height) !important;
+    padding: 0.6rem 1rem !important;
+  }
+  .topbar .logo { order: 1; }
+  .topbar .theme-toggle { order: 2; margin-left: 2px !important; position: relative !important; z-index: 110002 !important; }
+  .topbar .hamburger { order: 3; }
+
+  /* Ensure nav remains off-canvas and not visible until hamburger toggles it */
+  .topbar .nav-links, .nav-links {
+    top: var(--topbar-height) !important;
+  }
+}
+
+/* Make header sticky across all viewports */
+.topbar {
+  position: sticky !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 120000 !important;
+}
+
+/* Fallback for browsers that don't support sticky: use fixed and add body padding to avoid overlap */
+@supports (position: -webkit-sticky) or (position: sticky) {
+  /* browsers supporting sticky will use sticky above */
+}
+@supports not (position: sticky) {
+  .topbar { position: fixed !important; }
+  body { padding-top: var(--topbar-height) !important; }
+}
+
+/* Remove visible vertical scrollbar while preserving scrolling */
+html, body {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  background: transparent;
+}
+
+/* Final sticky header enforcement */
+:root { --topbar-height: 66px; }
+.topbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: var(--topbar-height) !important;
+  z-index: 9999999 !important;
+  background: var(--card) !important;
+}
+/* Ensure content not hidden under fixed header */
+body {
+  padding-top: var(--topbar-height) !important;
+}
+/* Ensure mobile nav sits below header */
+.topbar .nav-links, .nav-links {
+  top: var(--topbar-height) !important;
+}
+
+ /* Ensure hero buttons use the requested static gold styles and override other theme rules */
+.hero .btn-gold {
+  background: #ffd700 !important;
+  color: #000 !important;
+  border: none !important;
+}
+.hero .btn-gold:hover {
+  background: #e6c200 !important;
+}
+
+.hero .btn-outline {
+  border: 2px solid #ffd700 !important;
+  color: #ffd700 !important;
+  background: transparent !important;
+}
+.hero .btn-outline:hover {
+  background: #ffd700 !important;
+  color: #000 !important;
+}
+.contact .contact-form .btn-gold{
+  background: #ffd700 !important;
+  color: #000 !important;
+  padding: 0.8rem 1.5rem !important;
+}
+.btn-gold:hover {
+  background: #e6c200 !important;
+}
+.btn-small{
+  
+  color:  #000 !important;
+  background-color:#e6c200 !important ;
+}
+.footer-logo{
+    
+    color: #ffd700 !important;
+}
+.footer-logo span{
+    color:#fff !important;
+}
+
+/* Light theme: adjust hero button colors for contrast on light backgrounds */
+.light-theme .footer-socials {
+  color:#111 ;
+}
+.light-theme .footer-logo{
+  color: #ffd700 !important;
+}
+.light-theme .footer-logo span{
+    color:#111 !important;
+}
+.light-theme .social-links a{
+  color:#111 ;
+}
+.light-theme .social-links a:hover{
+  color:  #000; ;
+}
+.light-theme .hero .btn-gold {
+  background: #111 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.light-theme .hero .btn-gold:hover {
+  background: #222 !important;
+}
+.light-theme .hero-content h1{
+    color: #111;
+    
+}
+.light-theme .hamburger{
+   color: #111 !important;
+}
+.light-theme .hero .btn-outline {
+  border: 2px solid #111 !important;
+  color: #111 !important;
+  background: transparent !important;
+}
+.light-theme .hero .btn-outline:hover {
+  background: #111 !important;
+  color: #fff !important;
+}
+.light-theme .btn-small{
+  background: #111 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.light-theme .typed-text{
+    color: #111;
+}
+.light-theme .hero-content p {
+  
+  color: #111;
+  
+}
+.light-theme .about-content .about-text h3{
+  color: #1a1a1a;
+}
+.light-theme .about-content .about-text .fun-fact{
+  color: #1a1a1a;
+}
+
+
+@media (max-width: 768px) {
+  /* Slightly increase the revealed nav height and allow internal scrolling */
+  .topbar .nav-links, .nav-links {
+    top: calc(var(--topbar-height) - 11px) !important;
+    height: calc(100vh - var(--topbar-height) + 10px) !important;
+    max-height: 100vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+}
+
+/* Import professional fonts: Inter (UI) + Merriweather (headings) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Merriweather:wght@300;400;700&display=swap');
+
+/* Typography: use Merriweather for headings and brand for a distinguished feel */
+.hero-content h1,
+.section-title,
+h2, h3 {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Brand logo use Merriweather for a refined look while keeping color intact */
+.logo,
+.footer-logo {
+  font-family: 'Merriweather', Georgia, serif;
+  font-weight: 700;
+}
+
+/* Slightly tighten button text for a more professional appearance */
+.hero-buttons .btn-gold,
+.hero-buttons .btn-outline,
+.btn-small {
+  font-family: 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.01em;
 }

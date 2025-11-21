@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://fonts.googleapais.com/css2?family=Poppins:wght@400;600&display=swap">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css">
     </head>
     <body>
         <header class="topbar">
@@ -19,6 +20,9 @@
             <div class="hamburger" aria-label="Open menu">
                 <i class="fa-solid fa-bars"></i>
             </div>
+            <button class="theme-toggle" id="themeToggle">
+                <i class="ri-moon-fill" id="themeIcon"></i>
+            </button>
             <nav class="nav-links">
                 <a href="#hero">Home</a>
                 <a href="#about">About</a>
@@ -33,7 +37,7 @@
            <div class="hero-content">
                 <h1>Hi, I'm <span>AyoolaTheDev</span></h1>
                 
-                <p>I'm a <span class="typed-text"></span></p>
+                <p><b>I'm a</b> <span class="typed-text"></span></p>
             </div>
             <div class="hero-buttons">
                 <a href="#projects" class="btn-gold">View My Work</a>
@@ -79,8 +83,19 @@
             <div class="container">
                 <h2 class="section-title">My <span>Projects</span></h2>
                 <div class="projects-grid">
+                     <div class="project-card">
+                     <img src="Screenshot 2025-11-19 102607.png" alt="LoopSync project">
+                     <div class="project-info">
+                        <h3>LoopSync</h3>
+                        <p>LoopSync is a Habit Tracker Web-app i developed to keep people on their toes by keeping streaks on the App.</p>
+                        
+                        <div class="project-links">
+                            <a href="https://loop-sync.vercel.app/" target="_blank" class="btn-small">Visit Website</a>
+                        </div>
+                     </div>   
+                    </div>
                     <div class="project-card">
-                     <img src="IMG-20251017-WA0006.jpg" alt="DecentraShop project">
+                     <img src="Screenshot 2025-11-19 104929.png" alt="DecentraShop project">
                      <div class="project-info">
                         <h3>DecentraShop</h3>
                         <p>A Web3 powered e-commerce platform i designed that allows a users to buy and sell products using crypto payments.</p>
@@ -147,7 +162,7 @@
                     <div class="form-group">
                         <textarea placeholder="Your Message" name="message" rows="5" required></textarea>
                     </div>
-                    <button type="submit" class="btn gold">Send Message</button>
+                    <button type="submit" class="btn-gold">Send Message</button>
                 </form>
                 <div class="social-links">
                    <a href="https://x.com/Ayo olaTheDev?t=U_MFAaloEnAD8nIn97SBAw&s=08" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
@@ -155,11 +170,11 @@
                 
                 </div>
             </div>
-        </section>
+        </section>  
         <footer class="footer">
             <div class="container footer-content">
                 <div class="footer-logo">Ayoola<span>TheDev</span></div>
-
+   
                 <ul class="footer-links">
                 <li>  <a href="#about">About</a></li>  
                 <li><a href="#projects">Projects</a></li>
@@ -174,25 +189,17 @@
                 &COPY; 2025 AyoolaTheDev. All Rights Reserved.
             </p>
         </footer>
-        <script src="script1.js">
-        
-        </script>
+        <script src="theme-toggle.js" defer></script>
+        <script src="nav-toggle.js" defer></script>
+        <script src="script1.js" defer></script>
 
         <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-        <script src="script2.js">
-            
-        </script>
+        <script src="script2.js" defer></script>
 
         <script src="https://unpkg.com/scrollreveal"></script>
-        <script src="script3.js">
-        
-        </script>
-        <script src="script4.js">
-            
-        </script>
-<script src="script5.js">
-
-</script>
+        <script src="script3.js" defer></script>
+        <script src="script4.js" defer></script>
+        <script src="script5.js" defer></script>
 
     </body>
 </html>
